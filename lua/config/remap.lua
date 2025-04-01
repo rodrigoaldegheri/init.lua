@@ -10,8 +10,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
+
+-- comandi miei 1 aprile 2025
 vim.keymap.set("n", "W", ":w")
-vim.keymap.set("n", "Q", ":q!")
+vim.keymap.set("n", "N", ":q!")
 
 vim.keymap.set("n", "<leader>vwm", function()
     require("vim-with-me").StartVimWithMe()

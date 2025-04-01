@@ -49,13 +49,17 @@ ls.add_snippets("tex", {
     [[
     \documentclass[oneside]{{book}} % remove 'oneside' if printing!
     \usepackage{{graphicx}} % Required for inserting images
-    \usepackage[margin=3.5cm]{{geometry}}
+    \usepackage[margin=3.25cm]{{geometry}}
     \usepackage{{parskip}}
 
+
+    % robe di chimica
     \usepackage[T1]{{fontenc}}
     \usepackage[utf8]{{inputenc}}
     \usepackage{{chemfig}}
     \usepackage{{tikz}}
+
+    %math shit
     \usepackage{{amsmath}}
 
     % for numbered lists
@@ -76,11 +80,13 @@ ls.add_snippets("tex", {
 
     %%%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{{document}}
-
     \maketitle
-
     \tableofcontents
+
     {}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%PROSSIMA LEZIONE%%%%%%%%%%%%%%%%%%%%%%%%
+
     \end{{document}}
     ]], {
         i(1), i(2), i(3)
@@ -139,44 +145,45 @@ ls.add_snippets("tex", {
         i(2),
     })),
 
-    s("sec", fmta(
-    [[
-    \<>section{<>}
-    ]], {
-        c(1, {
-            t(""),
-            t("sub"),
-            t("subsub")
-        }),
-        i(2)
-    })),
+    s("chap", fmta([[\chapter{<>}]], { i(1) })),
+    s("sec", fmta([[\section{<>}]], { i(1) })),
+    s("ssec", fmta([[\subsection{<>}]], { i(1) })),
+    s("sssec", fmta([[\subsubsection{<>}]], { i(1) })),
 
-    s("chap", fmta(
-    [[
-    \chapter{<>}
-    ]], { i(1) }
-    )),
-
+    s("footnote", fmta([[\footnote{<>}]], { i(1) })),
     s("tit", fmta([[\textit{<>}]], { i(1) })),
     s("tbf", fmta([[\textbf{<>}]], { i(1) })),
     s("tsc", fmta([[\textsc{<>}]], { i(1) })),
 })
 
----- Keymaps ----
---- ANCORA IN FASE DI REVISIONE!!!!!
+ls.add_snippets("cpp", {
 
-vim.keymap.set({"i"}, "<C-B>", function() ls.expand() end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-Q>", function() ls.jump( 1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-D>", function() ls.jump(-1) end, {silent = true})
+    s("init", fmta(
+    [[
+    #include <<stdio.h>>
+    #include <<string.h>>
 
-vim.keymap.set({"i", "s"}, "<C-L>", function()
+    int main(void){
+        <>
+
+    return 0;
+    }
+    ]], { i(1) }
+    ))
+})
+
+vim.keymap.set({ "i" }, "<C-B>", function() ls.expand() end, {silent = true})
+vim.keymap.set({ "i", "s" }, "<C-Q>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({ "i", "s" }, "<C-D>", function() ls.jump(-1) end, {silent = true})
+
+vim.keymap.set({ "i", "s" }, "<C-L>", function()
 	if ls.choice_active() then
 		ls.change_choice(1)
 	end
 end, {silent = true})
 
 
------- import ----
+------ package import ----
 
 return{
 	  "L3MON4D3/LuaSnip",
