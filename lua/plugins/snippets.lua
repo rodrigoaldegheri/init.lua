@@ -154,6 +154,7 @@ ls.add_snippets("tex", {
     s("tit", fmta([[\textit{<>}]], { i(1) })),
     s("tbf", fmta([[\textbf{<>}]], { i(1) })),
     s("tsc", fmta([[\textsc{<>}]], { i(1) })),
+    s("ttt", fmta([[\texttt{<>}]], { i(1) }))
 })
 
 ls.add_snippets("cpp", {
