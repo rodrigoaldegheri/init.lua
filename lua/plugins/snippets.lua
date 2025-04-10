@@ -39,11 +39,44 @@ ls.add_snippets("tex", {
     s("beg", fmt(
     [[
     \begin{{{}}}
-            {}
+        {}
     \end{{{}}}
     ]], {
         i(1), i(0), rep(1)
     })),
+
+    s("abbreviazioni", fmta(
+    [[
+    \chapter*{Abbreviazioni}
+        \section*{Nomi}
+            \begin{tabular}{ll}
+                \textsc{<>} & <>\\
+            \end{tabular}
+    ]], { i(1), i(2) }
+    )),
+
+    s("tabular", fmta(
+    [[
+    \begin{tabular}{ll}
+        \textsc{<>} & <>\\
+    \end{tabular}
+    ]], { i(1), i(2) }
+    )),
+
+    s("abr", fmta(
+    [[\textsc{<>} & <>\\]], { i(1), i(2) }
+    )),
+
+    s("data", fmta(
+    [[
+        \phantomsection % insert an anchor point
+        \addcontentsline{toc}{<>}{\textsc{\textbf{Lezione del <>}}}
+
+        \begin{center}
+         \textsc{Lezione del <>}
+        \end{center}
+    ]], { i(1), i(2), rep(2) }
+    )),
 
     s("setup", fmt(
     [[
@@ -64,6 +97,10 @@ ls.add_snippets("tex", {
 
     % for numbered lists
     \usepackage{{enumerate}}
+
+    %for languages
+    \usepackage{{verse}}
+    \usepackage{{hyperref}}
 
     % for figures
     \usepackage{{booktabs}}
@@ -144,6 +181,17 @@ ls.add_snippets("tex", {
         }),
         i(2),
     })),
+
+    s("verse", fmta(
+    [[
+    \poemtitle{<>}
+    \settowidth{\versewidth}{<>}
+    \begin{verse}[\versewidth]
+        <>
+        <>
+    \end{verse}
+    ]], { i(1), i(2), rep(2), i(0)}
+    )),
 
     s("chap", fmta([[\chapter{<>}]], { i(1) })),
     s("sec", fmta([[\section{<>}]], { i(1) })),
