@@ -16,6 +16,23 @@ local c = ls.choice_node
 
 --- SNIPPETS -------
 
+ls.add_snippets("c", {
+
+    s("init", fmta(
+    [[
+    #include <<stdio.h>>
+    #include <<string.h>>
+
+    int main(void){
+        <>
+
+        return 0;
+    }
+    ]], { i(1) }
+    ))
+
+})
+
 ls.add_snippets("lua", {
     s("hello", {
         t('print("hello '),
