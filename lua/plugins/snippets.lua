@@ -86,13 +86,12 @@ ls.add_snippets("tex", {
 
     s("data", fmta(
     [[
-        \phantomsection % insert an anchor point
-        \addcontentsline{toc}{<>}{\textsc{\textbf{Lezione del <>}}}
+    \phantomsection % insert an anchor point
+    \addcontentsline{toc}{section}{\textsc{\textbf{Lezione del<>}}}
+    \section{<>}
 
-        \begin{center}
-         \textsc{Lezione del <>}
-        \end{center}
-    ]], { i(1), i(2), rep(2) }
+    \begin{center} \textsc{Lezione del<>} \end{center}
+    ]], { i(1), i(2), rep(1) }
     )),
 
     s("setup", fmt(
@@ -102,10 +101,13 @@ ls.add_snippets("tex", {
     \usepackage[margin=3.25cm]{{geometry}}
     \usepackage{{parskip}}
 
-
-    % robe di chimica
+    % font (garamond)
+    \usepackage[oldstyle]{{CormorantGaramond}}
+    \usepackage[cmintegrals,cmbraces]{{newtxmath}}
     \usepackage[T1]{{fontenc}}
     \usepackage[utf8]{{inputenc}}
+
+    % robe di chimica
     \usepackage{{chemfig}}
     \usepackage{{tikz}}
 
