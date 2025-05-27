@@ -72,6 +72,15 @@ ls.add_snippets("tex", {
     ]], { i(1), i(2) }
     )),
 
+    s("quote", fmta(
+    [[
+    \begin{quote}
+        <>
+        {\scriptsize <>}
+    \end{quote}
+    ]], { i(1), i(2) }
+    )),
+
     s("tabular", fmta(
     [[
     \begin{tabular}{ll}
