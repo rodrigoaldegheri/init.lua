@@ -110,9 +110,9 @@ ls.add_snippets("tex", {
     \usepackage[margin=3.25cm]{{geometry}}
     \usepackage{{parskip}}
 
-    % font (garamond)
-    \usepackage[oldstyle]{{CormorantGaramond}}
-    \usepackage[cmintegrals,cmbraces]{{newtxmath}}
+    % font (garamond) UNCOMMENT TO DISPLAY GARAMOND
+    %\usepackage[oldstyle]{{CormorantGaramond}}
+    %\usepackage[cmintegrals,cmbraces]{{newtxmath}}
     \usepackage[T1]{{fontenc}}
     \usepackage[utf8]{{inputenc}}
 
@@ -128,7 +128,7 @@ ls.add_snippets("tex", {
 
     %for languages
     \usepackage{{verse}}
-    \usepackage{{hyperref}}
+    \usepackage[hidelinks]{{hyperref}}
 
     % for figures
     \usepackage{{booktabs}}
@@ -138,6 +138,10 @@ ls.add_snippets("tex", {
     % for the table of contents
     \usepackage{{blindtext}}
     \usepackage{{titlesec}}
+
+    %bibliography
+    \usepackage[backend=biber, style=numeric, sorting=nty]{{biblatex}}
+    \addbibresource{{{}.bib}}
 
     \title{{{}}}
     \author{{Rodrigo Aldegheri}}
@@ -151,6 +155,11 @@ ls.add_snippets("tex", {
     {}
 
     %%%%%%%%%%%%%%%%%%%%%%%%PROSSIMA LEZIONE%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    % UNCOMMENT AFTER SETTING UP BIBLIOGRAPHY
+    %\printbibliography
+
 
     \end{{document}}
     ]], {
