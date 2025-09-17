@@ -62,6 +62,14 @@ ls.add_snippets("tex", {
         i(1), i(0), rep(1)
     })),
 
+    s("swi", fmta(
+    [[
+    \switchcolumn
+        {\scriptsize <>}
+    \switchcolumn
+    ]], { i(1) }
+    )),
+
     s("abbreviazioni", fmta(
     [[
     \chapter*{Abbreviazioni}
