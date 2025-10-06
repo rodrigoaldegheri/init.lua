@@ -83,7 +83,7 @@ ls.add_snippets("tex", {
     s("quote", fmta(
     [[
     \begin{quote}
-        <>
+        \textit{``<>''}\\
         {\scriptsize <>}
     \end{quote}
     ]], { i(1), i(2) }
