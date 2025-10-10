@@ -80,13 +80,23 @@ ls.add_snippets("tex", {
     ]], { i(1), i(2) }
     )),
 
-    s("quote", fmta(
+    s("quote1", fmta(
     [[
     \begin{quote}
         \textit{``<>''}\\
         {\scriptsize <>}
     \end{quote}
     ]], { i(1), i(2) }
+    )),
+
+    s("citman", fmta(
+    [[
+    \begin{quote}
+        {\small ``<>''}
+
+        {\scriptsize Alessandro Manzoni, \textit{I promessi sposi}, <>, p<>}
+    \end{quote}
+    ]], { i(1), i(2), i(3) }
     )),
 
     s("tabular", fmta(
