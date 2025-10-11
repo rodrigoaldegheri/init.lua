@@ -121,6 +121,26 @@ ls.add_snippets("tex", {
     ]], { i(1), i(2), rep(1) }
     )),
 
+    s("datan", fmta(
+    [[
+    \phantomsection % insert an anchor point
+    \addcontentsline{toc}{section}{\textsc{\textbf{Nota del<>}}}
+    \section{<>}
+
+    \begin{center} \textsc{Nota del<>} \end{center}
+    ]], { i(1), i(2), rep(1) }
+    )),
+
+    s("dataa", fmta(
+    [[
+    \phantomsection % insert an anchor point
+    \addcontentsline{toc}{section}{\textsc{\textbf{Appunti del<>}}}
+    \section{<>}
+
+    \begin{center} \textsc{Appunti del<>} \end{center}
+    ]], { i(1), i(2), rep(1) }
+    )),
+
     s("setup", fmt(
     [[
     \documentclass[oneside]{{book}} % remove 'oneside' if printing!
