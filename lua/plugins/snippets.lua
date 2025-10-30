@@ -40,16 +40,6 @@ ls.add_snippets("lua", {
         t(' world")')
     }),
 
-    s("snipl", fmta(
-    [=[
-        s("<>", fmta(
-        [[
-        <>
-        ]]
-        )), { <> }
-    ]=], { i(1), i(2), i(3) }
-    )),
-
 })
 
 ls.add_snippets("tex", {
@@ -62,10 +52,17 @@ ls.add_snippets("tex", {
         i(1), i(0), rep(1)
     })),
 
+    s("center", fmta(
+    [[
+    \begin{center} <> \end{center}
+    ]], { i(1) }
+    )),
+
+
     s("swi", fmta(
     [[
     \switchcolumn
-        {\scriptsize <>}
+        {\footnotesize <>}
     \switchcolumn
     ]], { i(1) }
     )),
@@ -80,7 +77,7 @@ ls.add_snippets("tex", {
     ]], { i(1), i(2) }
     )),
 
-    s("quote1", fmta(
+    s("quote", fmta(
     [[
     \begin{quote}
         \textit{``<>''}\\
@@ -89,7 +86,16 @@ ls.add_snippets("tex", {
     ]], { i(1), i(2) }
     )),
 
-    s("citman", fmta(
+    s("quoteted", fmta(
+    [[
+    \begin{quote}
+        \textit{``<>''}\\
+        {\scriptsize Carla Tedeschi, \textit{<> lezione di filosofia}}
+    \end{quote}
+    ]], { i(1), i(2) }
+    )),
+
+    s("quoteman", fmta(
     [[
     \begin{quote}
         {\small ``<>''}
@@ -140,6 +146,55 @@ ls.add_snippets("tex", {
     \begin{center} \textsc{Appunti del<>} \end{center}
     ]], { i(1), i(2), rep(1) }
     )),
+
+    s("img", fmta(
+    [[
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{<>}
+    \caption{<>}
+    \label{<>}
+    \end{figure}
+    ]], { i(1), i(2), i(3) }
+    )),
+
+    s("secpersformat", fmta(
+    [[
+
+    % --- SOLO i CAPITOLI in NUMERI ROMANI ---
+    \renewcommand{\thechapter}{\Roman{chapter}}
+
+    % ---- CHAPTER ----
+    \titleformat{\chapter}
+      {\centering\bfseries\scshape\Huge}
+      {\thechapter}
+      {1em}
+      {}
+
+     % ---- SECTION ----
+    \titleformat{\section}
+      {\centering\bfseries\scshape\Large} % Usa la dimensione originale di \section (Large)
+      {\thesection}                       % Mostra numero della sezione
+      {1em}
+      {}
+
+    % ---- SUBSECTION ----
+    \titleformat{\subsection}
+      {\centering\bfseries\scshape\normalsize} % Normalsize è la dimensione standard delle subsection
+      {\thesubsection}
+      {1em}
+      {}
+
+    % ---- SUBSUBSECTION ----
+    \titleformat{\subsubsection}
+      {\centering\bfseries\scshape\normalsize}
+      {\thesubsubsection}
+      {1em}
+      {}
+
+    ]], {}
+    )),
+
 
     s("setup", fmt(
     [[
