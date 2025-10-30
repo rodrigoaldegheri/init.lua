@@ -8,7 +8,7 @@ Here below there are some (boring) screenshots of my terminal:
 
 # Screenshots
 
-![donut.c](screenshots/donut.c.png)
+![donut.c](screenshots/donutc.png)
 ![LaTeX](screenshots/latex.png)
 ![Lazy](screenshots/lazy.png)
 ![Neovim](screenshots/nvim.png)
