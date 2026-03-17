@@ -43,6 +43,47 @@ ls.add_snippets("lua", {
 })
 
 ls.add_snippets("tex", {
+
+    s("dial", fmta(
+    [[
+    \begin{dialogue}{<>}
+        <>
+    \end{dialogue}
+    ]], { i(1), i(0) }
+    )),
+
+    s("dialw", fmta(
+    [[
+    \begin{dialogue}[<>]{<>}
+        <>
+    \end{dialogue}
+    ]], { i(2), i(1), i(0) }
+    )),
+
+    s("letter", fmta(
+    [[
+    \documentclass[a4paper]{letter}
+    \signature{Rodericus Aldegherius in Caslano}
+    % Comment the following line to center the Signature
+    \longindentation=0pt
+    \usepackage[margin=3cm]{geometry}
+    \begin{document}
+
+    \address{<>}
+    \date{Die \textsc{<>}}
+    \begin{letter}{\textsc{rodericus <> suo salutem plurimam dicit}}
+
+        \opening{}
+
+    %%%%%%%%%%%%%%%%
+    %%% Closings %%%
+    %%%%%%%%%%%%%%%%
+    \closing{\textit{Haec tibi scribo cum impensissimo obsequio.}}
+    \end{letter}
+    \end{document}
+    ]], { i(1), i(2), i(3) }
+    )),
+
     s("beg", fmt(
     [[
     \begin{{{}}}
@@ -196,56 +237,63 @@ ls.add_snippets("tex", {
     )),
 
 
-    s("setup", fmt(
+    s("lam", fmta(
     [[
-    \documentclass[oneside]{{book}} % remove 'oneside' if printing!
-    \usepackage{{graphicx}} % Required for inserting images
-    \usepackage[margin=3.25cm]{{geometry}}
-    \usepackage{{parskip}}
+    \documentclass[oneside]{book} % remove 'oneside' if printing!
+    \usepackage{graphicx} % Required for inserting images
+    \usepackage[margin=3.25cm]{geometry}
+    \usepackage{parskip}
 
     % font (garamond) UNCOMMENT TO DISPLAY GARAMOND
-    %\usepackage[oldstyle]{{CormorantGaramond}}
-    %\usepackage[cmintegrals,cmbraces]{{newtxmath}}
-    \usepackage[T1]{{fontenc}}
-    \usepackage[utf8]{{inputenc}}
+    %\usepackage[oldstyle]{CormorantGaramond}
+    %\usepackage[cmintegrals,cmbraces]{newtxmath}
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+
+    \usepackage[italian]{babel}
+
+    % note a pie di pagina per le note a pie di pagina se Tim non sbaglia
+    \usepackage{subcaption}
+
+    % per chimica
+    \usepackage{chemfig}
+    \usepackage{mhchem}
 
     % robe di chimica
-    \usepackage{{chemfig}}
-    \usepackage{{tikz}}
+    \usepackage{chemfig}
+    \usepackage{tikz}
 
-    %math shit
-    \usepackage{{amsmath}}
+    % math shit
+    \usepackage{amsmath}
 
     % for numbered lists
-    \usepackage{{enumerate}}
+    \usepackage{enumerate}
 
-    %for languages
-    \usepackage{{verse}}
-    \usepackage[hidelinks]{{hyperref}}
+    \usepackage[hidelinks]{hyperref}
 
     % for figures
-    \usepackage{{booktabs}}
-    \usepackage{{rotating}}
-    \usepackage{{float}}
+    \usepackage{booktabs}
+    \usepackage{rotating}
+    \usepackage{float}
 
     % for the table of contents
-    \usepackage{{blindtext}}
-    \usepackage{{titlesec}}
+    \usepackage{blindtext}
+    \usepackage{titlesec}
 
     %bibliography
-    \usepackage[backend=biber, style=numeric, sorting=nty]{{biblatex}}
-    \addbibresource{{{}.bib}}
+    \usepackage[backend=biber, style=chem-acs, sorting=nty]{biblatex}
+    \addbibresource{bier.bib}
 
-    \title{{{}}}
-    \author{{Rodrigo Aldegheri}}
-    \date{{{}}}
+    \title{Lavoro di maturità di chimica con J. Muri e P. Lubini - <>}
+    \author{Rodrigo Aldegheri, Nicolò Arcidiacono}
+    \date{2026}
 
     %%%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{{document}}
+    \begin{document}
     \maketitle
     \tableofcontents
 
-    {}
+    <>
 
     %%%%%%%%%%%%%%%%%%%%%%%%PROSSIMA LEZIONE%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -254,7 +302,77 @@ ls.add_snippets("tex", {
     %\printbibliography
 
 
-    \end{{document}}
+    \end{document}
+    ]], {
+        i(1), i(2)
+    })),
+
+
+    s("setup", fmta(
+    [[
+    \documentclass[oneside]{book} % remove 'oneside' if printing!
+    \usepackage{graphicx} % Required for inserting images
+    \usepackage[margin=3.25cm]{geometry}
+    \usepackage{parskip}
+
+    % font (garamond) UNCOMMENT TO DISPLAY GARAMOND
+    %\usepackage[oldstyle]{CormorantGaramond}
+    %\usepackage[cmintegrals,cmbraces]{newtxmath}
+    \usepackage{fontspec}
+
+    \usepackage{csquotes}
+    \usepackage[italian]{babel}
+    %\usepackage[english]{babel}
+    %\usepackage[german]{babel}
+    %\usepackage[spanish]{babel}
+    %\usepackage[]{babel}
+
+    % robe di chimica
+    \usepackage{chemfig}
+    \usepackage{tikz}
+
+    %math shit
+    \usepackage{amsmath}
+
+    % for numbered lists
+    \usepackage{enumerate}
+
+    %for languages
+    \usepackage{verse}
+    \usepackage[hidelinks]{hyperref}
+
+    % for figures
+    \usepackage{booktabs}
+    \usepackage{rotating}
+    \usepackage{float}
+
+    % for the table of contents
+    \usepackage{blindtext}
+    \usepackage{titlesec}
+
+    %bibliography
+    \usepackage[backend=biber, style=numeric, sorting=nty]{biblatex}
+    \addbibresource{<>.bib}
+
+    \title{<>}
+    \author{{Rodrigo Aldegheri}}
+    \date{<>}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{document}
+    \maketitle
+    \tableofcontents
+
+    <>
+
+    %%%%%%%%%%%%%%%%%%%%%%%%PROSSIMA LEZIONE%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    % UNCOMMENT AFTER SETTING UP BIBLIOGRAPHY
+    %\printbibliography
+
+
+    \end{document}
     ]], {
         i(1), i(2), i(3), i(4)
     })),

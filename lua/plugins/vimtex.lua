@@ -1,8 +1,19 @@
 return {
   "lervag/vimtex",
-  lazy = false,     -- we don't want to lazy load VimTeX
+  lazy = false,
   init = function()
-        vim.g.vimtex_view_method = 'skim'
+    vim.g.vimtex_view_method = 'skim'
 
+    vim.g.vimtex_compiler_method = 'latexmk'
+    vim.g.vimtex_compiler_latexmk_engines = { _ = '-pdflatex' }
+    vim.g.vimtex_compiler_latexmk = {
+      options = {
+        '-shell-escape',
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+      }
+    }
   end
 }

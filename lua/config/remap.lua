@@ -68,3 +68,12 @@ end)
 
 vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<CR>")
 
+-- sta roba mi faceva impazzire, sto comando penso si chiami Redo Register o qualcosa del genere
+vim.keymap.set("n", ".", "<Nop>")
+
+-- se sto usando una tastiera tedesca questo remap è crazy utile!!
+vim.keymap.set({"n", "v"}, "ö", ":")
+vim.keymap.set({"n", "v"}, "ü", "<cmd>w<cr>")
+vim.keymap.set({"n", "v"}, "è", "<cmd>wq<cr>")
+
+vim.keymap.set({"n", "v", "i"}, "ä", "@")
