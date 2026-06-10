@@ -13,6 +13,7 @@ return {
         '-file-line-error',
         '-synctex=1',
         '-interaction=nonstopmode',
+        '-output-directory=build',
       }
     }
   end

@@ -44,6 +44,8 @@ ls.add_snippets("lua", {
 
 ls.add_snippets("tex", {
 
+    -- per le scenografie --
+
     s("dial", fmta(
     [[
     \begin{dialogue}{<>}
@@ -59,6 +61,8 @@ ls.add_snippets("tex", {
     \end{dialogue}
     ]], { i(2), i(1), i(0) }
     )),
+
+    -- lettere --
 
     s("letter", fmta(
     [[
@@ -199,7 +203,7 @@ ls.add_snippets("tex", {
     ]], { i(1), i(2), i(3) }
     )),
 
-    s("secpersformat", fmta(
+    s("secformato", fmta(
     [[
 
     % --- SOLO i CAPITOLI in NUMERI ROMANI ---
@@ -235,146 +239,69 @@ ls.add_snippets("tex", {
 
     ]], {}
     )),
+    -----------------------------------
+    --**********            *********--
+    --**********            *********--
+    --**********            *********--
+    --********** SETUP PART *********--
+    --**********            *********--
+    --**********            *********--
+    --**********            *********--
+    -----------------------------------
 
-
-    s("lam", fmta(
+    s("setupgaramond", fmta(
     [[
-    \documentclass[oneside]{book} % remove 'oneside' if printing!
-    \usepackage{graphicx} % Required for inserting images
-    \usepackage[margin=3.25cm]{geometry}
-    \usepackage{parskip}
-
     % font (garamond) UNCOMMENT TO DISPLAY GARAMOND
     %\usepackage[oldstyle]{CormorantGaramond}
     %\usepackage[cmintegrals,cmbraces]{newtxmath}
-    \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
-
-    \usepackage[italian]{babel}
-
-    % note a pie di pagina per le note a pie di pagina se Tim non sbaglia
-    \usepackage{subcaption}
-
-    % per chimica
-    \usepackage{chemfig}
-    \usepackage{mhchem}
-
-    % robe di chimica
-    \usepackage{chemfig}
-    \usepackage{tikz}
-
-    % math shit
-    \usepackage{amsmath}
-
-    % for numbered lists
-    \usepackage{enumerate}
-
-    \usepackage[hidelinks]{hyperref}
-
-    % for figures
-    \usepackage{booktabs}
-    \usepackage{rotating}
-    \usepackage{float}
-
-    % for the table of contents
-    \usepackage{blindtext}
-    \usepackage{titlesec}
-
-    %bibliography
-    \usepackage[backend=biber, style=chem-acs, sorting=nty]{biblatex}
-    \addbibresource{bier.bib}
-
-    \title{Lavoro di maturità di chimica con J. Muri e P. Lubini - <>}
-    \author{Rodrigo Aldegheri, Nicolò Arcidiacono}
-    \date{2026}
-
-    %%%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{document}
-    \maketitle
-    \tableofcontents
-
-    <>
-
-    %%%%%%%%%%%%%%%%%%%%%%%%PROSSIMA LEZIONE%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-    % UNCOMMENT AFTER SETTING UP BIBLIOGRAPHY
-    %\printbibliography
-
-
-    \end{document}
-    ]], {
-        i(1), i(2)
-    })),
-
+    ]], {}
+    )),
 
     s("setup", fmta(
     [[
-    \documentclass[oneside]{book} % remove 'oneside' if printing!
-    \usepackage{graphicx} % Required for inserting images
+    \documentclass[a4paper, oneside]{book}
     \usepackage[margin=3.25cm]{geometry}
-    \usepackage{parskip}
 
-    % font (garamond) UNCOMMENT TO DISPLAY GARAMOND
-    %\usepackage[oldstyle]{CormorantGaramond}
-    %\usepackage[cmintegrals,cmbraces]{newtxmath}
-    \usepackage{fontspec}
+    %\usepackage{parskip}
 
+    %configurazione di base standard
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[hidelinks]{hyperref}
     \usepackage{csquotes}
     \usepackage[italian]{babel}
-    %\usepackage[english]{babel}
-    %\usepackage[german]{babel}
-    %\usepackage[spanish]{babel}
-    %\usepackage[]{babel}
 
-    % robe di chimica
-    \usepackage{chemfig}
-    \usepackage{tikz}
-
-    %math shit
-    \usepackage{amsmath}
-
-    % for numbered lists
-    \usepackage{enumerate}
-
-    %for languages
-    \usepackage{verse}
-    \usepackage[hidelinks]{hyperref}
-
-    % for figures
     \usepackage{booktabs}
     \usepackage{rotating}
     \usepackage{float}
 
-    % for the table of contents
+    % cose piuttosto utili
+    \usepackage{tikz}
+    \usepackage{graphicx}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{enumerate}
+
+    % toc
     \usepackage{blindtext}
     \usepackage{titlesec}
-
-    %bibliography
-    \usepackage[backend=biber, style=numeric, sorting=nty]{biblatex}
-    \addbibresource{<>.bib}
 
     \title{<>}
     \author{{Rodrigo Aldegheri}}
     \date{<>}
 
-    %%%%%%%%%%%%%%%%%%%%%%%%DOCUMENT%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%INIZIO DOCUMENTO%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{document}
     \maketitle
     \tableofcontents
 
     <>
 
-    %%%%%%%%%%%%%%%%%%%%%%%%PROSSIMA LEZIONE%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-    % UNCOMMENT AFTER SETTING UP BIBLIOGRAPHY
-    %\printbibliography
-
+    %%%%%%%%%%%%%%%%%%%%%%%%FINE DOCUMENTO%%%%%%%%%%%%%%%%%%%%%%%%
 
     \end{document}
     ]], {
-        i(1), i(2), i(3), i(4)
+        i(1), i(2), i(3)
     })),
 
     s("eq", fmt(
